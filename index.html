@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +60,7 @@
             --glass-border: rgba(214, 162, 75, 0.15);
             --glass-bg: rgba(26, 24, 22, 0.7);
             --white: #111111;
-            
+
             --text-gradient: linear-gradient(to right, var(--accent-primary), #fff);
             --header-bg: rgba(15, 14, 13, 0.9);
             --header-bg-scrolled: rgba(20, 18, 16, 0.98);
@@ -142,8 +141,16 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.6; transform: scale(0.95); filter: drop-shadow(0 0 10px rgba(166, 110, 26, 0.2)); }
-            100% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(214, 162, 75, 0.6)); }
+            0% {
+                opacity: 0.6;
+                transform: scale(0.95);
+                filter: drop-shadow(0 0 10px rgba(166, 110, 26, 0.2));
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 25px rgba(214, 162, 75, 0.6));
+            }
         }
 
         /* TYPOGRAPHY & UTILITIES */
@@ -285,7 +292,7 @@
             justify-content: center;
         }
 
-        /* NAVIGATION & LOGO REDESIGN */
+        /* NAVIGATION */
         header {
             position: fixed;
             top: 0;
@@ -360,7 +367,8 @@
             position: relative;
         }
 
-        .nav-links a:hover, .dropdown-toggle:hover {
+        .nav-links a:hover,
+        .dropdown-toggle:hover {
             color: var(--text-primary);
         }
 
@@ -492,7 +500,7 @@
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
-            min-height: 2em; /* Prevents layout shift during typing */
+            min-height: 2em;
         }
 
         .typed-cursor {
@@ -549,7 +557,6 @@
         /* SERVICES GRID */
         .grid-layout {
             display: grid;
-            /* Ensures cards don't break off-screen on very small mobile displays */
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
             gap: 2rem;
         }
@@ -644,24 +651,17 @@
             padding: 2.5rem;
         }
 
-        /* SPA ROUTING */
-        .page-section { display: none; }
-        .page-section.active-page {
-            display: block;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* ANIMATIONS */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* FOOTER */
         footer {
@@ -685,8 +685,13 @@
             text-transform: uppercase;
         }
 
-        .footer-links li { margin-bottom: 1rem; }
-        .footer-links li a { color: var(--text-secondary); }
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links li a {
+            color: var(--text-secondary);
+        }
 
         /* FAB BUTTONS */
         .fab {
@@ -700,7 +705,7 @@
             align-items: center;
             font-size: 1.5rem;
             color: var(--white);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             z-index: 900;
             transition: var(--transition-smooth);
         }
@@ -717,24 +722,25 @@
             pointer-events: none;
         }
 
-        .fab-top.visible { opacity: 1; pointer-events: all; }
+        .fab-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
 
-        /* ========================================================
-           MOBILE RESPONSIVE TWEAKS 
-           ======================================================== */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
             .hamburger {
                 display: block;
             }
 
             .nav-actions .btn-primary {
-                display: none; /* Hide primary button on small headers to save space */
+                display: none;
             }
 
             .nav-links {
                 position: fixed;
                 top: 0;
-                right: -100%; /* Side Drawer Approach */
+                right: -100%;
                 width: 100%;
                 max-width: 400px;
                 height: 100vh;
@@ -749,8 +755,8 @@
                 padding-bottom: 40px;
                 gap: 2rem;
                 z-index: 2001;
-                overflow-y: auto; /* Allows scrolling if menu items overflow */
-                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                overflow-y: auto;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
             }
 
             body.dark-mode .nav-links {
@@ -760,8 +766,9 @@
             .nav-links.active {
                 right: 0;
             }
-            
-            .nav-links a, .dropdown-toggle {
+
+            .nav-links a,
+            .dropdown-toggle {
                 font-size: 1.2rem;
             }
 
@@ -782,10 +789,10 @@
 
             .nav-dropdown.open .dropdown-menu {
                 pointer-events: all;
-                max-height: 500px; /* High enough to show all items */
+                max-height: 500px;
                 margin-top: 1rem;
             }
-            
+
             .dropdown-menu a {
                 justify-content: center;
                 font-size: 1rem;
@@ -793,24 +800,45 @@
         }
 
         @media (max-width: 768px) {
-            .brand-logo-img { height: 45px; }
-            .brand-main { font-size: 1.1rem; letter-spacing: 1px; }
-            
-            .section-padding { padding: 80px 0; }
-            
-            .hero-btns { flex-direction: column; gap: 1rem; width: 100%; max-width: 300px; margin-inline: auto; }
-            .hero-btns .btn { width: 100%; }
-
-            /* Fix input zoom issue on iOS Safari */
-            input, textarea {
-                font-size: 16px !important; 
+            .brand-logo-img {
+                height: 45px;
             }
-            
-            .fab-top { display: none; } /* Hide back to top on very small screens to avoid clutter */
+
+            .brand-main {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                max-width: 300px;
+                margin-inline: auto;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+            }
+
+            input,
+            textarea {
+                font-size: 16px !important;
+            }
+
+            .fab-top {
+                display: none;
+            }
         }
-        
+
         @media (max-width: 480px) {
-            .brand-main { display: none; } /* Only hide text on ultra-small screens */
+            .brand-main {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -827,7 +855,7 @@
 
     <header id="header">
         <div class="container nav-wrapper">
-            <a href="#home" class="brand-logo-wrapper route-link" data-route="home">
+            <a href="#home" class="brand-logo-wrapper route-link">
                 <img src="gc.jpeg" alt="Golden Clicks Logo" class="brand-logo-img">
                 <div class="brand-text-container">
                     <span class="brand-main">GOLDEN CLICKS</span>
@@ -835,183 +863,181 @@
             </a>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="#home" class="nav-item route-link" data-route="home">Home</a></li>
-                <li><a href="#about" class="nav-item route-link" data-route="about">About</a></li>
-                <li><a href="#services" class="nav-item route-link" data-route="services">Services</a></li>
+                <li><a href="#home" class="nav-item route-link">Home</a></li>
+                <li><a href="#about" class="nav-item route-link">About</a></li>
+                <li><a href="#services" class="nav-item route-link">Services</a></li>
                 <li class="nav-dropdown" id="dm-dropdown">
                     <button type="button" class="dropdown-toggle" id="dm-toggle">
                         Expertise <i class="fa-solid fa-chevron-down caret"></i>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="#portfolio" class="nav-item route-link" data-route="portfolio"><i class="fa-solid fa-gem"></i> Portfolio</a>
-                        <a href="#blog" class="nav-item route-link" data-route="blog"><i class="fa-solid fa-book-open"></i> Insights</a>
-                        <a href="https://www.instagram.com/" target="_blank" class="nav-item"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                        <a href="https://www.youtube.com/" target="_blank" class="nav-item"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                        <a href="#portfolio" class="nav-item route-link"><i class="fa-solid fa-gem"></i> Portfolio</a>
+                        <a href="#blog" class="nav-item route-link"><i class="fa-solid fa-book-open"></i> Insights</a>
+                        <a href="https://www.instagram.com/" target="_blank" class="nav-item"><i
+                                class="fa-brands fa-instagram"></i> Instagram</a>
+                        <a href="https://www.youtube.com/" target="_blank" class="nav-item"><i
+                                class="fa-brands fa-youtube"></i> YouTube</a>
                     </div>
                 </li>
-                <li><a href="#pricing" class="nav-item route-link" data-route="pricing">Investment</a></li>
-                <li><a href="#faq" class="nav-item route-link" data-route="faq">FAQ</a></li>
-                <li><a href="#contact" class="nav-item route-link" data-route="contact">Contact</a></li>
+                <li><a href="#pricing" class="nav-item route-link">Investment</a></li>
+                <li><a href="#faq" class="nav-item route-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-item route-link">Contact</a></li>
             </ul>
 
             <div class="nav-actions">
                 <button id="theme-toggle" class="btn" title="Toggle Dark Mode" style="padding: 10px;">
                     <i class="fa-solid fa-moon"></i>
                 </button>
-                <a href="#contact" class="btn btn-primary route-link" data-route="contact" style="padding: 10px 20px; font-size: 0.8rem; letter-spacing: 0.5px;">Book Call</a>
+                <a href="#contact" class="btn btn-primary route-link"
+                    style="padding: 10px 20px; font-size: 0.8rem; letter-spacing: 0.5px;">Book Call</a>
                 <i class="fa-solid fa-bars hamburger" id="hamburger"></i>
             </div>
         </div>
     </header>
 
     <main id="app-root">
-        <!-- HOME PAGE -->
-        <section id="page-home" class="page-section active-page" data-page="home">
-            <section id="home" class="hero">
-                <canvas id="particle-canvas"></canvas>
-                <div class="container">
-                    <div class="hero-content reveal">
-                        <span class="eyebrow" style="margin-bottom: 1rem;">---------------------------</span>
-                        <h1><span class="gradient-text">Digital</span> Marketing</h1>
-                        <h2>Elevate Your Brand With Golden Clicks</h2>
-                        <p><span id="typed-text"></span><span class="typed-cursor">&nbsp;</span></p>
-                        <div class="hero-btns">
-                            <a href="#contact" class="btn btn-primary route-link" data-route="contact">Start Journey</a>
-                            <a href="https://www.instagram.com/" target="_blank" class="btn btn-outline"><i class="fa-solid fa-play"></i> Showreel</a>
-                        </div>
+        <section id="home" class="hero">
+            <canvas id="particle-canvas"></canvas>
+            <div class="container">
+                <div class="hero-content reveal">
+                    <span class="eyebrow" style="margin-bottom: 1rem;">---------------------------</span>
+                    <h1><span class="gradient-text">Digital</span> Marketing</h1>
+                    <h2>Elevate Your Brand With Golden Clicks</h2>
+                    <p><span id="typed-text"></span><span class="typed-cursor">&nbsp;</span></p>
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-primary route-link">Start Journey</a>
+                        <a href="https://www.instagram.com/" target="_blank" class="btn btn-outline"><i
+                                class="fa-solid fa-play"></i> Showreel</a>
+                    </div>
 
-                        <div class="stats-wrapper">
-                            <div class="stat-item">
-                                <h3 class="counter" data-target="100">0</h3>
-                                <p>Exclusive Clients</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="counter" data-target="500">0</h3>
-                                <p>Masterpieces</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="counter" data-target="10">0<span>M+</span></h3>
-                                <p>Organic Views</p>
-                            </div>
+                    <div class="stats-wrapper">
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="100">0</h3>
+                            <p>Exclusive Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="500">0</h3>
+                            <p>Masterpieces</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="10">0<span>M+</span></h3>
+                            <p>Organic Views</p>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="section-padding" style="background: var(--bg-surface);">
-                <div class="container text-center reveal">
-                    <span class="eyebrow">The Standard of Excellence</span>
-                    <h2 class="section-title">Why Leaders <span class="gradient-text">Choose Us</span></h2>
-                    <p class="section-subtitle">We architect immersive digital experiences that convert clicks into capital.</p>
-
-                    <div class="glass-card" style="aspect-ratio: 16/9; max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: center; position: relative;">
-                        <div style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200') center/cover; opacity: 0.85; mix-blend-mode: multiply;"></div>
-                        <div style="background: linear-gradient(to top, var(--bg-surface), transparent); inset: 0; position: absolute;"></div>
-                        <a href="https://www.instagram.com/" target="_blank" class="play-btn">
-                            <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-padding">
-                <div class="container">
-                    <div class="text-center reveal">
-                        <span class="eyebrow">Our Arsenal</span>
-                        <h2 class="section-title">Luxury <span class="gradient-text">Capabilities</span></h2>
-                        <p class="section-subtitle">Tailored, high-performance solutions designed to dominate your market sector.</p>
-                    </div>
-                    <div class="grid-layout" id="services-container-home"></div>
-                </div>
-            </section>
-
-            <section class="section-padding" style="background: var(--bg-surface);">
-                <div class="container reveal">
-                    <div class="text-center">
-                        <span class="eyebrow">Client Success</span>
-                        <h2 class="section-title">Words from <span class="gradient-text">Partners</span></h2>
-                    </div>
-                    <div class="testimonial-grid" style="margin-top: 3rem;">
-                        <div class="glass-card testimonial-card">
-                            <div style="color: var(--accent-primary); margin-bottom: 1rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p style="font-style: italic; font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 1.5rem;">"Golden Clicks completely transformed our digital presence. The cinematic quality increased our luxury lead flow by 300%."</p>
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt="Client" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-primary);">
-                                <div>
-                                    <h4 style="font-family: var(--font-body); font-size: 0.95rem;">Michael R.</h4>
-                                    <p style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">CEO, Prestige Real Estate</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glass-card testimonial-card">
-                            <div style="color: var(--accent-primary); margin-bottom: 1rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p style="font-style: italic; font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 1.5rem;">"The performance marketing ROI is unmatched. They craft a sophisticated brand narrative that commands attention."</p>
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Client" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-primary);">
-                                <div>
-                                    <h4 style="font-family: var(--font-body); font-size: 0.95rem;">Sarah J.</h4>
-                                    <p style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">Founder, Lumina Beauty</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-padding" style="padding-top: 40px; padding-bottom: 40px;">
-                <div class="container text-center reveal">
-                    <p class="eyebrow" style="margin-bottom: 2rem;">Trusted Technology Partners</p>
-                    <div class="marquee-wrapper">
-                        <div class="marquee-content">
-                            <i class="fa-brands fa-apple"></i><i class="fa-brands fa-aws"></i><i class="fa-brands fa-stripe"></i>
-                            <i class="fa-brands fa-figma"></i><i class="fa-brands fa-google"></i><i class="fa-brands fa-meta"></i>
-                        </div>
-                        <div class="marquee-content" aria-hidden="true">
-                            <i class="fa-brands fa-apple"></i><i class="fa-brands fa-aws"></i><i class="fa-brands fa-stripe"></i>
-                            <i class="fa-brands fa-figma"></i><i class="fa-brands fa-google"></i><i class="fa-brands fa-meta"></i>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
         </section>
 
-        <!-- ABOUT PAGE -->
-        <section id="page-about" class="page-section" data-page="about">
-            <div class="section-padding container text-center" style="padding-top: 150px;">
+        <section class="section-padding" style="background: var(--bg-surface);">
+            <div class="container text-center reveal">
+                <span class="eyebrow">The Standard of Excellence</span>
+                <h2 class="section-title">Why Leaders <span class="gradient-text">Choose Us</span></h2>
+                <p class="section-subtitle">We architect immersive digital experiences that convert clicks into
+                    capital.</p>
+
+                <div class="glass-card"
+                    style="aspect-ratio: 16/9; max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <div
+                        style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200') center/cover; opacity: 0.85; mix-blend-mode: multiply;">
+                    </div>
+                    <div
+                        style="background: linear-gradient(to top, var(--bg-surface), transparent); inset: 0; position: absolute;">
+                    </div>
+                    <a href="https://www.instagram.com/" target="_blank" class="play-btn">
+                        <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-padding container text-center">
                 <span class="eyebrow">Our Story</span>
                 <h1 class="section-title">The Agency of <span class="gradient-text">Tomorrow</span></h1>
-                <p class="section-subtitle">A collective of elite strategists, cinematic designers, and visionary editors obsessed with one metric: your absolute market dominance.</p>
+                <p class="section-subtitle">A collective of elite strategists, cinematic designers, and visionary
+                    editors obsessed with one metric: your absolute market dominance.</p>
                 <div class="glass-card" style="padding: 2.5rem; max-width: 900px; margin: 2rem auto; text-align: left;">
                     <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Vision meets Execution</h3>
-                    <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7;">We are a premium digital marketing agency dedicated to turning your clicks into gold. At Golden Clicks, we reject the ordinary. Every pixel we place, every frame we cut, and every campaign we launch is meticulously engineered to position your brand at the pinnacle of your industry.</p>
+                    <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7;">We are a premium
+                        digital marketing agency dedicated to turning your clicks into gold. At Golden Clicks, we
+                        reject the ordinary. Every pixel we place, every frame we cut, and every campaign we launch
+                        is meticulously engineered to position your brand at the pinnacle of your industry.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES PAGE -->
-        <section id="page-services" class="page-section" data-page="services">
-            <div class="section-padding container text-center" style="padding-top: 150px;">
+        <section id="services" style="background: var(--bg-surface);">
+            <div class="section-padding container text-center">
                 <span class="eyebrow">Expertise</span>
                 <h1 class="section-title">Core <span class="gradient-text">Services</span></h1>
-                <p class="section-subtitle">Comprehensive digital solutions designed for brand growth and scalability.</p>
-                <div class="glass-card" style="padding: 2.5rem; max-width: 900px; margin: 2rem auto;">
-                    <p style="font-size: 1rem; color: var(--text-secondary);">Here we deploy targeted strategies spanning Social Media Management, Content Creation, Performance Meta/Google Ads, and Technical SEO to build your digital empire.</p>
+                <p class="section-subtitle">Comprehensive digital solutions designed for brand growth and
+                    scalability.</p>
+                <div class="grid-layout" id="services-container-home"></div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container reveal">
+                <div class="text-center">
+                    <span class="eyebrow">Client Success</span>
+                    <h2 class="section-title">Words from <span class="gradient-text">Partners</span></h2>
+                </div>
+                <div class="testimonial-grid" style="margin-top: 3rem;">
+                    <div class="glass-card testimonial-card">
+                        <div style="color: var(--accent-primary); margin-bottom: 1rem;"><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p
+                            style="font-style: italic; font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                            "Golden Clicks completely transformed our digital presence. The cinematic quality
+                            increased our luxury lead flow by 300%."</p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80"
+                                alt="Client"
+                                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-primary);">
+                            <div>
+                                <h4 style="font-family: var(--font-body); font-size: 0.95rem;">Michael R.</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">
+                                    CEO, Prestige Real Estate</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card testimonial-card">
+                        <div style="color: var(--accent-primary); margin-bottom: 1rem;"><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p
+                            style="font-style: italic; font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                            "The performance marketing ROI is unmatched. They craft a sophisticated brand
+                            narrative that commands attention."</p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
+                                alt="Client"
+                                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-primary);">
+                            <div>
+                                <h4 style="font-family: var(--font-body); font-size: 0.95rem;">Sarah J.</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">
+                                    Founder, Lumina Beauty</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- PORTFOLIO PAGE -->
-        <section id="page-portfolio" class="page-section" data-page="portfolio">
-            <div class="section-padding container text-center" style="padding-top: 150px;">
+        <section id="portfolio" style="background: var(--bg-surface);">
+            <div class="section-padding container text-center">
                 <span class="eyebrow">Showcase</span>
                 <h1 class="section-title">Digital <span class="gradient-text">Masterpieces</span></h1>
-                <p class="section-subtitle">A curated selection of our highest-converting campaigns and cinematic content.</p>
+                <p class="section-subtitle">A curated selection of our highest-converting campaigns and cinematic
+                    content.</p>
             </div>
         </section>
 
-        <!-- PRICING PAGE -->
-        <section id="page-pricing" class="page-section" data-page="pricing">
-            <div class="section-padding container text-center" style="padding-top: 150px;">
+        <section id="pricing">
+            <div class="section-padding container text-center">
                 <span class="eyebrow">Investment</span>
                 <h1 class="section-title">Transparent <span class="gradient-text">Pricing</span></h1>
                 <p class="section-subtitle">Select a package tailored for your exact growth stage.</p>
@@ -1019,51 +1045,85 @@
             </div>
         </section>
 
-        <!-- FAQ PAGE -->
-        <section id="page-faq" class="page-section" data-page="faq">
-            <div class="section-padding container text-center" style="padding-top: 150px;">
+        <section id="faq" style="background: var(--bg-surface);">
+            <div class="section-padding container text-center">
                 <span class="eyebrow">Knowledge Base</span>
                 <h1 class="section-title">Commonly Asked <span class="gradient-text">Questions</span></h1>
                 <p class="section-subtitle">Everything you need to know about partnering with Golden Clicks.</p>
             </div>
         </section>
 
-        <!-- BLOG PAGE -->
-        <section id="page-blog" class="page-section" data-page="blog">
-            <div class="section-padding container text-center" style="padding-top: 150px;">
+        <section id="blog">
+            <div class="section-padding container text-center">
                 <span class="eyebrow">Insights</span>
                 <h1 class="section-title">Industry <span class="gradient-text">News</span></h1>
-                <p class="section-subtitle">Strategies, tips, and the latest algorithm breakdowns from our elite team.</p>
+                <p class="section-subtitle">Strategies, tips, and the latest algorithm breakdowns from our elite
+                    team.</p>
             </div>
         </section>
 
-        <!-- CONTACT PAGE -->
-        <section id="page-contact" class="page-section" data-page="contact">
-            <div class="section-padding container text-center" style="padding-top: 150px;">
+        <section id="contact" style="background: var(--bg-surface);">
+            <div class="section-padding container text-center">
                 <span class="eyebrow">Initiate</span>
                 <h1 class="section-title">Secure Your <span class="gradient-text">Future</span></h1>
-                <p class="section-subtitle">Ready to architect your digital empire? Connect directly with our executive team.</p>
+                <p class="section-subtitle">Ready to architect your digital empire? Connect directly with our
+                    executive team.</p>
 
                 <div class="glass-card" style="padding: 2.5rem; max-width: 700px; margin: 0 auto;">
                     <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.2rem; text-align: left;">
                         <div>
-                            <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 6px; display: block;">Full Name</label>
-                            <input type="text" id="nameInput" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); outline: none;">
+                            <label
+                                style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 6px; display: block;">Full
+                                Name</label>
+                            <input type="text" id="nameInput" required
+                                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); outline: none;">
                         </div>
                         <div>
-                            <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 6px; display: block;">Email Address</label>
-                            <input type="email" id="emailInput" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); outline: none;">
+                            <label
+                                style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 6px; display: block;">Email
+                                Address</label>
+                            <input type="email" id="emailInput" required
+                                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); outline: none;">
                         </div>
                         <div>
-                            <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 6px; display: block;">Project Details</label>
-                            <textarea rows="4" id="messageInput" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); outline: none;"></textarea>
+                            <label
+                                style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 6px; display: block;">Project
+                                Details</label>
+                            <textarea rows="4" id="messageInput" required
+                                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); outline: none;"></textarea>
                         </div>
-                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Submit Inquiry</button>
-                        <p id="formFeedback" style="display: none; text-align: center; margin-top: 10px; font-weight: 500; font-size: 0.9rem; color: #25D366;"></p>
+                        <button type="submit" id="submitBtn" class="btn btn-primary"
+                            style="width: 100%; margin-top: 0.5rem;">Submit Inquiry</button>
+                        <p id="formFeedback"
+                            style="display: none; text-align: center; margin-top: 10px; font-weight: 500; font-size: 0.9rem; color: #25D366;">
+                        </p>
                     </form>
                     <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--glass-border);">
-                        <a href="mailto:goldenclicks1557@gmail.com" style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--accent-dark); word-break: break-all;">goldenclicks1557@gmail.com</a><br>
-                        <a href="tel:+918952861367" style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--accent-dark); display: inline-block; margin-top: 5px;">+91 89528 61367</a>
+                        <a href="mailto:goldenclicks1557@gmail.com"
+                            style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--accent-dark); word-break: break-all;">goldenclicks1557@gmail.com</a><br>
+                        <a href="tel:+918952861367"
+                            style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--accent-dark); display: inline-block; margin-top: 5px;">+91
+                            89528 61367</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="padding-top: 40px; padding-bottom: 40px;">
+            <div class="container text-center reveal">
+                <p class="eyebrow" style="margin-bottom: 2rem;">Trusted Technology Partners</p>
+                <div class="marquee-wrapper">
+                    <div class="marquee-content">
+                        <i class="fa-brands fa-apple"></i><i class="fa-brands fa-aws"></i><i
+                            class="fa-brands fa-stripe"></i>
+                        <i class="fa-brands fa-figma"></i><i class="fa-brands fa-google"></i><i
+                            class="fa-brands fa-meta"></i>
+                    </div>
+                    <div class="marquee-content" aria-hidden="true">
+                        <i class="fa-brands fa-apple"></i><i class="fa-brands fa-aws"></i><i
+                            class="fa-brands fa-stripe"></i>
+                        <i class="fa-brands fa-figma"></i><i class="fa-brands fa-google"></i><i
+                            class="fa-brands fa-meta"></i>
                     </div>
                 </div>
             </div>
@@ -1074,7 +1134,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <a href="#home" class="brand-logo-wrapper route-link" data-route="home" style="margin-bottom: 1rem;">
+                    <a href="#home" class="brand-logo-wrapper route-link" style="margin-bottom: 1rem;">
                         <img src="gc.jpeg" alt="Golden Clicks Logo" style="height: 45px;">
                         <span class="brand-main" style="font-size: 1.1rem; margin-left: 10px;">GOLDEN CLICKS</span>
                     </a>
@@ -1086,32 +1146,40 @@
                 <div>
                     <h4>Capabilities</h4>
                     <ul class="footer-links">
-                        <li><a href="#services" class="route-link" data-route="services">Web Architecture</a></li>
-                        <li><a href="#services" class="route-link" data-route="services">Cinematic Reels</a></li>
-                        <li><a href="#services" class="route-link" data-route="services">Meta/Google Ads</a></li>
-                        <li><a href="#services" class="route-link" data-route="services">Search Dominance</a></li>
+                        <li><a href="#services" class="route-link">Web Architecture</a></li>
+                        <li><a href="#services" class="route-link">Cinematic Reels</a></li>
+                        <li><a href="#services" class="route-link">Meta/Google Ads</a></li>
+                        <li><a href="#services" class="route-link">Search Dominance</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4>Network</h4>
                     <ul class="footer-links">
-                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram" style="color: #E1306C; width: 20px;"></i> Instagram</a></li>
-                        <li><a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube" style="color: #FF0000; width: 20px;"></i> YouTube</a></li>
-                        <li><a href="https://wa.me/918952861367" target="_blank"><i class="fa-brands fa-whatsapp" style="color: #25D366; width: 20px;"></i> WhatsApp</a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"
+                                    style="color: #E1306C; width: 20px;"></i> Instagram</a></li>
+                        <li><a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"
+                                    style="color: #FF0000; width: 20px;"></i> YouTube</a></li>
+                        <li><a href="https://wa.me/918952861367" target="_blank"><i class="fa-brands fa-whatsapp"
+                                    style="color: #25D366; width: 20px;"></i> WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--glass-border); padding-top: 1.5rem; text-align: center;">
-                <span style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; width: 100%; text-align: left;">Mon–Sat, 10 AM – 7 PM</span>
-                <span style="color: var(--text-secondary); font-size: 0.8rem; width: 100%; text-align: left;">&copy; <span id="year"></span> Golden Clicks Agency. All Rights Reserved.</span>
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--glass-border); padding-top: 1.5rem; text-align: center;">
+                <span
+                    style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; width: 100%; text-align: left;">Mon–Sat,
+                    10 AM – 7 PM</span>
+                <span style="color: var(--text-secondary); font-size: 0.8rem; width: 100%; text-align: left;">&copy;
+                    <span id="year"></span> Golden Clicks Agency. All Rights Reserved.</span>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/918952861367" target="_blank" class="fab fab-wa" title="Priority Chat"><i class="fa-brands fa-whatsapp"></i></a>
-    <a href="#home" class="fab fab-top route-link" data-route="home" id="backToTop"><i class="fa-solid fa-arrow-up"></i></a>
+    <a href="https://wa.me/918952861367" target="_blank" class="fab fab-wa" title="Priority Chat"><i
+            class="fa-brands fa-whatsapp"></i></a>
+    <a href="#home" class="fab fab-top route-link" id="backToTop"><i class="fa-solid fa-arrow-up"></i></a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1125,7 +1193,7 @@
             // Theme Toggle
             const themeToggle = document.getElementById('theme-toggle');
             const themeIcon = themeToggle.querySelector('i');
-            
+
             if (localStorage.getItem('theme') === 'dark') {
                 document.body.classList.add('dark-mode');
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
@@ -1154,7 +1222,7 @@
                 scrollProgress.style.width = docHeight > 0 ? (window.scrollY / docHeight) * 100 + '%' : '0%';
             });
 
-            // Improved Mobile Navigation Menu (Scroll lock body)
+            // Improved Mobile Navigation Menu
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('nav-links');
             const dmDropdown = document.getElementById('dm-dropdown');
@@ -1224,7 +1292,7 @@
                                 ${s.items.map(i => `<li style="color: #fff;"><i class="fa-solid fa-check" style="color: var(--accent-primary);"></i> ${i}</li>`).join('')}
                                 ${s.notIncluded.length ? s.notIncluded.map(i => `<li style="color: rgba(255,255,255,0.5);"><i class="fa-solid fa-times" style="color: #ff4c4c;"></i> <i>${i}</i></li>`).join('') : ''}
                             </ul>
-                            <a href="#contact" class="btn btn-primary route-link" data-route="contact" style="margin-top: 1.5rem; width: 100%;">Select Plan</a>
+                            <a href="#contact" class="btn btn-primary route-link" style="margin-top: 1.5rem; width: 100%;">Select Plan</a>
                         </div>
                     </div>
                 `).join('');
@@ -1235,20 +1303,20 @@
             // Intersection Observers for animation and stats
             const observerOpts = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
             const revealObserver = new IntersectionObserver((entries, obs) => {
-                entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('active'); obs.unobserve(e.target); }});
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); obs.unobserve(e.target); } });
             }, observerOpts);
-            function initReveals() { document.querySelectorAll('.reveal:not(.active)').forEach(el => revealObserver.observe(el)); }
-            
+            document.querySelectorAll('.reveal:not(.active)').forEach(el => revealObserver.observe(el));
+
             const countObs = new IntersectionObserver((entries, obs) => {
                 entries.forEach(e => {
-                    if(e.isIntersecting) {
+                    if (e.isIntersecting) {
                         const target = +e.target.dataset.target;
                         let count = 0;
                         const speed = target / 30;
                         const suffix = e.target.innerHTML.includes('span') ? e.target.querySelector('span').outerHTML : (target > 90 ? '+' : '');
                         const update = () => {
                             count += speed;
-                            if(count < target) { e.target.innerHTML = Math.ceil(count) + suffix; requestAnimationFrame(update); } 
+                            if (count < target) { e.target.innerHTML = Math.ceil(count) + suffix; requestAnimationFrame(update); }
                             else e.target.innerHTML = target + suffix;
                         };
                         update(); obs.unobserve(e.target);
@@ -1262,19 +1330,19 @@
             const typedEl = document.getElementById('typed-text');
             let pIdx = 0, cIdx = 0, del = false;
             function typeTxt() {
-                if(!typedEl) return;
+                if (!typedEl) return;
                 const txt = phrases[pIdx];
                 typedEl.textContent = txt.slice(0, cIdx + (del ? -1 : 1));
                 cIdx += del ? -1 : 1;
-                if(cIdx === txt.length) { del = true; setTimeout(typeTxt, 2000); return; }
-                if(cIdx === 0) { del = false; pIdx = (pIdx + 1) % phrases.length; }
+                if (cIdx === txt.length) { del = true; setTimeout(typeTxt, 2000); return; }
+                if (cIdx === 0) { del = false; pIdx = (pIdx + 1) % phrases.length; }
                 setTimeout(typeTxt, del ? 25 : 60);
             }
             typeTxt();
-            
+
             document.getElementById('year').innerText = new Date().getFullYear();
 
-            // Background Particle Canvas setup optimized for mobile resize
+            // Background Particle Canvas
             const canvas = document.getElementById('particle-canvas');
             if (canvas) {
                 const ctx = canvas.getContext('2d');
@@ -1282,32 +1350,19 @@
                 function rCanvas() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
                 function initParts() {
                     particles = []; const count = Math.floor((canvas.width * canvas.height) / 25000);
-                    for(let i=0; i<count; i++) particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*2+0.5, vx: (Math.random()-0.5)*0.2, vy: (Math.random()-0.5)*0.2, c: Math.random()>0.5 ? 'rgba(166,110,26,0.4)' : 'rgba(214,162,75,0.3)' });
+                    for (let i = 0; i < count; i++) particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 2 + 0.5, vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.2, c: Math.random() > 0.5 ? 'rgba(166,110,26,0.4)' : 'rgba(214,162,75,0.3)' });
                 }
                 function animParts() {
-                    ctx.clearRect(0,0,canvas.width,canvas.height);
-                    particles.forEach(p => { p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>canvas.width)p.vx*=-1; if(p.y<0||p.y>canvas.height)p.vy*=-1; ctx.beginPath(); ctx.fillStyle=p.c; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); });
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach(p => { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > canvas.width) p.vx *= -1; if (p.y < 0 || p.y > canvas.height) p.vy *= -1; ctx.beginPath(); ctx.fillStyle = p.c; ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill(); });
                     requestAnimationFrame(animParts);
                 }
                 window.addEventListener('resize', () => { rCanvas(); initParts(); });
                 rCanvas(); initParts(); animParts();
             }
 
-            // SPA Routing
-            const routes = ['home', 'about', 'services', 'portfolio', 'pricing', 'faq', 'contact', 'blog'];
-            function goPage(r) {
-                const route = routes.includes(r) ? r : 'home';
-                document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page'));
-                document.getElementById('page-' + route)?.classList.add('active-page');
-                document.querySelectorAll('.route-link').forEach(l => l.classList.toggle('active', l.dataset.route === route));
-                window.scrollTo({ top: 0, behavior: 'instant' });
-                initReveals();
-            }
-            window.addEventListener('hashchange', () => goPage(window.location.hash.replace('#', '') || 'home'));
-            goPage(window.location.hash.replace('#', '') || 'home');
-
             // Form Submit Logic
-            document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            document.getElementById('contactForm')?.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const name = document.getElementById('nameInput').value, email = document.getElementById('emailInput').value, msg = document.getElementById('messageInput').value, btn = document.getElementById('submitBtn'), fb = document.getElementById('formFeedback');
                 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
@@ -1321,1712 +1376,5 @@
         });
     </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Golden Clicks - Premium Digital Marketing Agency. We help businesses generate leads, increase sales, and dominate the digital world.">
-    <meta name="theme-color" content="#D6A24B">
-    <title>Golden Clicks | Premium Luxury Digital Marketing Agency</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* LUXURY COLOR SYSTEM & VARIABLES */
-        :root {
-            --bg-base: #FFF7EB;
-            --bg-surface: #FCE0B3;
-            --bg-alt: #F3CE97;
-            --card-bg: #EBC088;
-            --accent-primary: #D6A24B;
-            --accent-dark: #A66E1A;
-            --text-primary: #3B2A16;
-            --text-secondary: #6A5330;
-            --glass-border: rgba(166, 110, 26, 0.15);
-            --glass-bg: rgba(255, 247, 235, 0.4);
-            --white: #FFFFFF;
-
-            --theme-gradient: linear-gradient(135deg, var(--bg-alt) 0%, var(--accent-primary) 50%, var(--accent-dark) 100%);
-            --text-gradient: linear-gradient(to right, var(--accent-dark), var(--text-primary));
-
-            --header-bg: rgba(255, 247, 235, 0.7);
-            --header-bg-scrolled: rgba(252, 224, 179, 0.95);
-            --card-overlay: rgba(255, 255, 255, 0.1);
-
-            --shadow-premium: 0 20px 40px rgba(166, 110, 26, 0.08), 0 0 20px rgba(255, 255, 255, 0.5);
-            --shadow-hover: 0 25px 50px rgba(166, 110, 26, 0.15), 0 10px 30px rgba(214, 162, 75, 0.2);
-
-            --font-brand: 'Cinzel', serif;
-            --font-heading: 'Cormorant Garamond', serif;
-            --font-body: 'Poppins', sans-serif;
-            --font-tagline: 'Montserrat', sans-serif;
-
-            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* DARK MODE VARIABLES */
-        body.dark-mode {
-            --bg-base: #0f0e0d;
-            --bg-surface: #1a1816;
-            --bg-alt: #26231f;
-            --card-bg: #2a2723;
-            --text-primary: #f5f0ea;
-            --text-secondary: #bbaea0;
-            --glass-border: rgba(214, 162, 75, 0.15);
-            --glass-bg: rgba(26, 24, 22, 0.7);
-            --white: #111111;
-            
-            --text-gradient: linear-gradient(to right, var(--accent-primary), #fff);
-            --header-bg: rgba(15, 14, 13, 0.85);
-            --header-bg-scrolled: rgba(20, 18, 16, 0.98);
-
-            --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(214, 162, 75, 0.05);
-            --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(214, 162, 75, 0.15);
-        }
-
-        body.dark-mode footer {
-            background: linear-gradient(180deg, #1a1816 0%, #0f0e0d 100%);
-            border-top: 3px solid var(--accent-primary);
-        }
-
-        /* RESET & GLOBAL */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 0%, var(--white) 0%, transparent 70%);
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            line-height: 1.2;
-            color: var(--text-primary);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-        }
-
-        ::selection {
-            background: var(--accent-primary);
-            color: #fff;
-        }
-
-        /* LOADER */
-        #loader {
-            position: fixed;
-            inset: 0;
-            background: var(--bg-base);
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.8s ease;
-        }
-
-        .loader-brand {
-            animation: pulse 1.5s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% {
-                opacity: 0.6;
-                transform: scale(0.95);
-                filter: drop-shadow(0 0 10px rgba(166, 110, 26, 0.2));
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1.05);
-                filter: drop-shadow(0 0 25px rgba(214, 162, 75, 0.6));
-            }
-        }
-
-        /* TYPOGRAPHY & UTILITIES */
-        .container {
-            width: 100%;
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        .section-padding {
-            padding: 140px 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .gradient-text {
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 4vw, 4rem);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 4rem auto;
-            font-family: var(--font-tagline);
-            font-weight: 400;
-        }
-
-        .eyebrow {
-            color: var(--accent-dark);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            display: block;
-            font-weight: 600;
-            font-family: var(--font-tagline);
-        }
-
-        /* PREMIUM GLASS CARDS */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            box-shadow: var(--shadow-premium);
-            transition: var(--transition-smooth);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            z-index: 1;
-        }
-
-        .glass-card:hover {
-            border-color: rgba(214, 162, 75, 0.4);
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-10px) scale(1.01);
-        }
-
-        /* BUTTONS */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 1rem;
-            font-family: var(--font-tagline);
-            border: none;
-            outline: none;
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--theme-gradient);
-            color: #fff;
-            box-shadow: 0 10px 25px rgba(166, 110, 26, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(166, 110, 26, 0.35);
-            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-dark) 100%);
-        }
-
-        .btn-outline {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            border: 1px solid var(--accent-primary);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            background: var(--theme-gradient);
-            color: #fff;
-            border-color: transparent;
-            box-shadow: 0 10px 25px rgba(166, 110, 26, 0.2);
-        }
-
-        #theme-toggle {
-            padding: 12px;
-            font-size: 1.1rem;
-            border-radius: 50%;
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--glass-border);
-        }
-
-        #theme-toggle:hover {
-            background: var(--bg-surface);
-            transform: translateY(-2px);
-        }
-
-        /* NAVIGATION & LOGO REDESIGN */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 2000;
-            transition: var(--transition-smooth);
-            padding: 20px 0;
-            background: var(--header-bg);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        header.scrolled {
-            background: var(--header-bg-scrolled);
-            padding: 12px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand-logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: var(--transition-smooth);
-        }
-
-        .brand-logo-wrapper:hover {
-            transform: translateY(-2px);
-            filter: drop-shadow(0 5px 15px rgba(214, 162, 75, 0.3));
-        }
-
-        .brand-logo-img {
-            height: 65px;
-            width: auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(166, 110, 26, 0.1);
-        }
-
-        .brand-text-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .brand-main {
-            font-family: var(--font-brand);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: 2px;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.1;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links a,
-        .dropdown-toggle {
-            font-family: var(--font-tagline);
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover,
-        .dropdown-toggle:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-links>li>a::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent-dark);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links>li>a:hover::after,
-        .nav-links>li>a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--text-primary);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            cursor: pointer;
-        }
-
-        /* Dropdown */
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            background: none;
-            border: none;
-            padding: 0;
-            display: flex;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .dropdown-toggle .caret {
-            font-size: 0.7rem;
-            color: var(--accent-dark);
-            transition: transform 0.3s ease;
-        }
-
-        .nav-dropdown.open .caret,
-        .nav-dropdown:hover .caret {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 25px);
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            min-width: 240px;
-            background: var(--bg-base);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            box-shadow: var(--shadow-premium);
-            padding: 1rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-dropdown:hover .dropdown-menu,
-        .nav-dropdown.open .dropdown-menu {
-            opacity: 1;
-            pointer-events: all;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            transition: var(--transition-smooth);
-        }
-
-        .dropdown-menu a::after {
-            display: none;
-        }
-
-        .dropdown-menu a i {
-            color: var(--accent-primary);
-            width: 20px;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--bg-surface);
-            color: var(--text-primary);
-            transform: translateX(8px);
-        }
-
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: var(--theme-gradient);
-            box-shadow: 0 0 10px var(--accent-primary);
-            z-index: 1001;
-            transition: width 0.1s linear;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding-top: 100px;
-            background: radial-gradient(circle at top right, var(--bg-alt) 0%, var(--bg-base) 100%);
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
-            pointer-events: none;
-            mix-blend-mode: overlay;
-        }
-
-        #particle-canvas {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: 0.6;
-        }
-
-        .aurora-bg {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 50% 50%, rgba(214, 162, 75, 0.1), transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(166, 110, 26, 0.15), transparent 50%);
-            animation: rotateAurora 40s linear infinite;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(3.5rem, 6vw, 6.5rem);
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-        }
-
-        .hero h2 {
-            font-size: clamp(1.2rem, 2vw, 1.8rem);
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            font-family: var(--font-tagline);
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 750px;
-            margin-inline: auto;
-        }
-
-        .typed-cursor {
-            border-right: 2px solid var(--accent-dark);
-            animation: blink 0.8s infinite;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 5rem;
-            flex-wrap: wrap;
-        }
-
-        .stats-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 5rem;
-            border-top: 1px solid var(--glass-border);
-            padding-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item h3 {
-            font-size: 3.5rem;
-            font-family: var(--font-brand);
-            color: var(--text-primary);
-            margin-bottom: 0.2rem;
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-        }
-
-        .stat-item h3 span {
-            color: var(--accent-dark);
-            font-size: 2.5rem;
-            margin-left: 5px;
-        }
-
-        .stat-item p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-family: var(--font-tagline);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        /* SERVICES GRID */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .card-inner {
-            padding: 3rem 2.5rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border-radius: 24px;
-        }
-
-        .card-icon {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-            display: inline-block;
-            background: var(--theme-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .glass-card:hover .card-icon {
-            transform: scale(1.15) translateY(-5px);
-        }
-
-        .card-title {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-heading);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .card-list {
-            margin-top: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .card-list li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-family: var(--font-body);
-        }
-
-        .card-list li i {
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
-
-        /* PLAY BUTTON / MEDIA */
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8rem;
-            color: var(--accent-dark);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: var(--transition-smooth);
-            box-shadow: 0 10px 30px rgba(166, 110, 26, 0.2);
-            z-index: 2;
-        }
-
-        body.dark-mode .play-btn {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--accent-primary);
-        }
-
-        .play-btn:hover {
-            background: var(--white);
-            color: var(--accent-primary);
-            transform: translate(-50%, -50%) scale(1.15);
-            box-shadow: 0 15px 40px rgba(214, 162, 75, 0.4);
-        }
-
-        /* MARQUEE */
-        .marquee-wrapper {
-            display: flex;
-            overflow: hidden;
-            user-select: none;
-            gap: 4rem;
-            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-        }
-
-        .marquee-content {
-            display: flex;
-            flex-shrink: 0;
-            justify-content: space-around;
-            min-width: 100%;
-            gap: 5rem;
-            animation: scroll 30s linear infinite;
-        }
-
-        .marquee-content i {
-            font-size: 4rem;
-            color: var(--text-secondary);
-            opacity: 0.3;
-            transition: var(--transition-smooth);
-        }
-
-        .marquee-content i:hover {
-            color: var(--accent-dark);
-            opacity: 1;
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 15px rgba(214, 162, 75, 0.3));
-        }
-
-        /* TESTIMONIALS */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            padding: 3rem;
-            text-align: left;
-        }
-
-        .testimonial-stars {
-            color: var(--accent-primary);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            font-family: var(--font-heading);
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-            line-height: 1.8;
-        }
-
-        .client-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .client-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-primary);
-        }
-
-        .client-meta h4 {
-            font-family: var(--font-body);
-            font-size: 1rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .client-meta p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: var(--font-tagline);
-        }
-
-        /* SPA ROUTING & ANIMATIONS */
-        .page-section {
-            display: none;
-        }
-
-        .page-section.active-page {
-            display: block;
-            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* FOOTER */
-        footer {
-            background: linear-gradient(180deg, #f6c97d 0%, #f1f17a 45%, #c7c8bb 100%);
-            color: #ffffff;
-            padding: 100px 0 40px;
-            position: relative;
-            border-top: 3px solid var(--accent-primary);
-            transition: background 0.4s ease;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-links h4 {
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-family: var(--font-tagline);
-        }
-
-        .footer-links li {
-            margin-bottom: 1.5rem;
-            font-family: var(--font-body);
-            font-size: 1.05rem;
-        }
-
-        .footer-links li a {
-            color: var(--text-secondary);
-            transition: var(--transition-smooth);
-            display: inline-block;
-        }
-
-        body.dark-mode .footer-links li a {
-             color: var(--text-secondary);
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent-dark);
-            transform: translateX(8px);
-        }
-
-        /* FLOATING ACTION BUTTONS */
-        .fab {
-            position: fixed;
-            bottom: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.6rem;
-            color: var(--white);
-            box-shadow: 0 10px 25px rgba(166, 110, 26, 0.3);
-            z-index: 900;
-            transition: var(--transition-smooth);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .fab-wa {
-            right: 30px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            animation: waPulse 4s infinite;
-        }
-
-        @keyframes waPulse {
-            0%, 100% { box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4), 0 0 0 20px rgba(37, 211, 102, 0); }
-        }
-
-        .fab-top {
-            right: 110px;
-            background: var(--theme-gradient);
-            opacity: 0;
-            pointer-events: none;
-            color: #fff;
-        }
-
-        .fab-top.visible {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .fab:hover {
-            transform: translateY(-8px) scale(1.1);
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) {
-            .hamburger {
-                display: block;
-                z-index: 2001; 
-            }
-
-            .nav-actions .btn-primary {
-                display: none;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: 100%;
-                width: 100%;
-                height: 100vh;
-                background: rgba(252, 224, 179, 0.98);
-                backdrop-filter: blur(25px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-                font-size: 1.4rem;
-                gap: 2.5rem; 
-                z-index: 2000;
-            }
-
-            body.dark-mode .nav-links {
-                background: rgba(26, 24, 22, 0.98);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .brand-text-container {
-                display: none;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-            }
-
-            .dropdown-menu {
-                position: static;
-                transform: none;
-                opacity: 1;
-                pointer-events: none;
-                max-height: 0;
-                overflow: hidden;
-                background: transparent;
-                border: none;
-                box-shadow: none;
-                padding: 0;
-                transition: max-height 0.4s ease;
-                width: 100%;
-            }
-
-            .nav-dropdown.open .dropdown-menu {
-                pointer-events: all;
-                max-height: 400px;
-                margin-top: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .brand-logo-wrapper {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <div id="scroll-progress"></div>
-
-    <div id="loader">
-        <div class="loader-brand">
-            <img src="gc.jpeg"
-                alt="Golden Clicks Logo" style="height: 80px; width: auto; border-radius: 8px;">
-        </div>
-    </div>
-
-    <header id="header">
-        <div class="container nav-wrapper">
-            <a href="#home" class="brand-logo-wrapper route-link" data-route="home">
-                <img src="gc.jpeg" alt="Golden Clicks Logo"
-                    class="brand-logo-img">
-                <div class="brand-text-container">
-                    <span class="brand-main">GOLDEN CLICKS</span>
-                </div>
-            </a>
-
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home" class="nav-item route-link" data-route="home">Home</a></li>
-                <li><a href="#about" class="nav-item route-link" data-route="about">About</a></li>
-                <li><a href="#services" class="nav-item route-link" data-route="services">Services</a></li>
-                <li class="nav-dropdown" id="dm-dropdown">
-                    <button type="button" class="dropdown-toggle" id="dm-toggle">
-                        Expertise <i class="fa-solid fa-chevron-down caret"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="#portfolio" class="nav-item route-link" data-route="portfolio"><i
-                                class="fa-solid fa-gem"></i> Portfolio</a>
-                        <a href="#blog" class="nav-item route-link" data-route="blog"><i
-                                class="fa-solid fa-book-open"></i> Insights</a>
-                        <a href="https://www.instagram.com/" target="_blank" class="nav-item"><i
-                                class="fa-brands fa-instagram"></i> Instagram</a>
-                        <a href="https://www.youtube.com/" target="_blank" class="nav-item"><i
-                                class="fa-brands fa-youtube"></i> YouTube</a>
-                    </div>
-                </li>
-                <li><a href="#pricing" class="nav-item route-link" data-route="pricing">Investment</a></li>
-                <li><a href="#faq" class="nav-item route-link" data-route="faq">FAQ</a></li>
-                <li><a href="#contact" class="nav-item route-link" data-route="contact">Contact</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <button id="theme-toggle" class="btn" title="Toggle Dark Mode">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-
-                <a href="#contact" class="btn btn-primary route-link" data-route="contact"
-    style="padding: 8px 20px; font-size: 0.75rem; letter-spacing: 0.5px; border-radius: 30px;">Book Strategy Call</a>
-                <i class="fa-solid fa-bars hamburger" id="hamburger"></i>
-            </div>
-        </div>
-    </header>
-
-    <main id="app-root">
-        <section id="page-home" class="page-section active-page" data-page="home">
-            <section id="home" class="hero">
-                <canvas id="particle-canvas"></canvas>
-                <div class="aurora-bg"></div>
-                <div class="container">
-                    <div class="hero-content reveal">
-                        <span class="eyebrow" style="margin-bottom: 1rem;">---------------------------</span>
-                        <h1><span class="gradient-text">Digital</span> Marketing Agency</h1>
-                        <h2>Elevate Your Brand With Golden Clicks</h2>
-                        <p><span id="typed-text"></span><span class="typed-cursor">&nbsp;</span></p>
-                        <div class="hero-btns">
-                            <a href="#contact" class="btn btn-primary route-link" data-route="contact">Start Your
-                                Journey</a>
-                            <a href="https://www.instagram.com/" target="_blank" class="btn btn-outline"><i
-                                    class="fa-solid fa-play"></i> Cinematic Showreel</a>
-                        </div>
-
-                        <div class="stats-wrapper">
-                            <div class="stat-item">
-                                <h3 class="counter" data-target="100">0</h3>
-                                <p>Exclusive Clients</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="counter" data-target="500">0</h3>
-                                <p>Masterpieces Delivered</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="counter" data-target="10">0<span>M+</span></h3>
-                                <p>Organic Views</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-padding" style="background: var(--bg-surface);">
-                <div class="container text-center reveal">
-                    <span class="eyebrow">The Standard of Excellence</span>
-                    <h2 class="section-title">Why Industry Leaders <span class="gradient-text">Choose Us</span></h2>
-                    <p class="section-subtitle">We architect immersive digital experiences that convert clicks into
-                        capital and viewers into brand evangelists.</p>
-
-                    <div class="glass-card"
-                        style="aspect-ratio: 16/9; max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: center; position: relative;">
-                        <div
-                            style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200') center/cover; opacity: 0.85; mix-blend-mode: multiply;">
-                        </div>
-                        <div
-                            style="background: linear-gradient(to top, var(--bg-surface), transparent); inset: 0; position: absolute;">
-                        </div>
-                        <a href="https://www.instagram.com/" target="_blank" class="play-btn">
-                            <i class="fa-solid fa-play" style="margin-left: 5px;"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-padding">
-                <div class="container">
-                    <div class="text-center reveal">
-                        <span class="eyebrow">Our Arsenal</span>
-                        <h2 class="section-title">Luxury <span class="gradient-text">Capabilities</span></h2>
-                        <p class="section-subtitle">Tailored, high-performance solutions designed to dominate your
-                            market sector.</p>
-                    </div>
-                    <div class="grid-layout" id="services-container-home"></div>
-                </div>
-            </section>
-
-            <section class="section-padding" style="background: var(--bg-surface);">
-                <div class="container reveal">
-                    <div class="text-center">
-                        <span class="eyebrow">Client Success</span>
-                        <h2 class="section-title">Words from <span class="gradient-text">Partners</span></h2>
-                    </div>
-                    <div class="testimonial-grid" style="margin-top: 4rem;">
-                        <div class="glass-card testimonial-card">
-                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testimonial-text">"Golden Clicks completely transformed our digital presence. The
-                                cinematic quality of their reels and website redesign increased our luxury lead flow by
-                                300%."</p>
-                            <div class="client-info">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80"
-                                    alt="Client" class="client-img">
-                                <div class="client-meta">
-                                    <h4>Michael R.</h4>
-                                    <p>CEO, Prestige Real Estate</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glass-card testimonial-card">
-                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="testimonial-text">"The performance marketing ROI is unmatched. They don't just run
-                                ads; they craft a sophisticated brand narrative that commands attention and drives
-                                sales."</p>
-                            <div class="client-info">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
-                                    alt="Client" class="client-img">
-                                <div class="client-meta">
-                                    <h4>Sarah J.</h4>
-                                    <p>Founder, Lumina Beauty</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-padding" style="padding-top: 60px; padding-bottom: 60px;">
-                <div class="container text-center reveal">
-                    <p class="eyebrow" style="margin-bottom: 3rem; text-align: center;">Trusted Technology Partners</p>
-                    <div class="marquee-wrapper">
-                        <div class="marquee-content">
-                            <i class="fa-brands fa-apple"></i><i class="fa-brands fa-aws"></i><i
-                                class="fa-brands fa-stripe"></i>
-                            <i class="fa-brands fa-figma"></i><i class="fa-brands fa-google"></i><i
-                                class="fa-brands fa-meta"></i>
-                        </div>
-                        <div class="marquee-content" aria-hidden="true">
-                            <i class="fa-brands fa-apple"></i><i class="fa-brands fa-aws"></i><i
-                                class="fa-brands fa-stripe"></i>
-                            <i class="fa-brands fa-figma"></i><i class="fa-brands fa-google"></i><i
-                                class="fa-brands fa-meta"></i>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section>
-
-        <section id="page-about" class="page-section" data-page="about">
-            <div class="section-padding container text-center" style="padding-top: 180px;">
-                <span class="eyebrow">Our Story</span>
-                <h1 class="section-title">The Agency of <span class="gradient-text">Tomorrow</span></h1>
-                <p class="section-subtitle">A collective of elite strategists, cinematic designers, and visionary
-                    editors obsessed with one metric: your absolute market dominance.</p>
-                <div class="glass-card" style="padding: 4rem; max-width: 900px; margin: 3rem auto; text-align: left;">
-                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Vision meets Execution</h3>
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8;">We are a premium
-                        digital marketing agency dedicated to turning your clicks into gold. At Golden Clicks, we reject
-                        the ordinary. Every pixel we place, every frame we cut, and every campaign we launch is
-                        meticulously engineered to position your brand at the pinnacle of your industry.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="page-services" class="page-section" data-page="services">
-            <div class="section-padding container text-center" style="padding-top: 180px;">
-                <span class="eyebrow">Expertise</span>
-                <h1 class="section-title">Core <span class="gradient-text">Services</span></h1>
-                <p class="section-subtitle">Comprehensive digital solutions designed for brand growth and scalability.
-                </p>
-                <div class="glass-card" style="padding: 4rem; max-width: 900px; margin: 3rem auto;">
-                    <p style="font-size: 1.1rem; color: var(--text-secondary);">Here we deploy targeted strategies
-                        spanning Social Media Management, Content Creation, Performance Meta/Google Ads, and Technical
-                        SEO to build your digital empire.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="page-portfolio" class="page-section" data-page="portfolio">
-            <div class="section-padding container text-center" style="padding-top: 180px;">
-                <span class="eyebrow">Showcase</span>
-                <h1 class="section-title">Digital <span class="gradient-text">Masterpieces</span></h1>
-                <p class="section-subtitle">A curated selection of our highest-converting campaigns and cinematic
-                    content.</p>
-            </div>
-        </section>
-
-        <section id="page-pricing" class="page-section" data-page="pricing">
-            <div class="section-padding container text-center" style="padding-top: 180px;">
-                <span class="eyebrow">Investment</span>
-                <h1 class="section-title">Transparent <span class="gradient-text">Pricing</span></h1>
-                <p class="section-subtitle">Select a package tailored for your exact growth stage.</p>
-                <div class="grid-layout" id="services-container-pricing" style="margin-top: 4rem;">
-                </div>
-            </div>
-        </section>
-
-        <section id="page-faq" class="page-section" data-page="faq">
-            <div class="section-padding container text-center" style="padding-top: 180px;">
-                <span class="eyebrow">Knowledge Base</span>
-                <h1 class="section-title">Commonly Asked <span class="gradient-text">Questions</span></h1>
-                <p class="section-subtitle">Everything you need to know about partnering with Golden Clicks.</p>
-            </div>
-        </section>
-
-        <section id="page-blog" class="page-section" data-page="blog">
-            <div class="section-padding container text-center" style="padding-top: 180px;">
-                <span class="eyebrow">Insights</span>
-                <h1 class="section-title">Industry <span class="gradient-text">News & Updates</span></h1>
-                <p class="section-subtitle">Strategies, tips, and the latest algorithm breakdowns from our elite team.
-                </p>
-            </div>
-        </section>
-
-        <section id="page-contact" class="page-section" data-page="contact">
-            <div class="section-padding container text-center" style="padding-top: 180px;">
-                <span class="eyebrow">Initiate</span>
-                <h1 class="section-title">Secure Your <span class="gradient-text">Future</span></h1>
-                <p class="section-subtitle">Ready to architect your digital empire? Connect directly with our executive
-                    team.</p>
-
-                <div class="glass-card" style="padding: 4rem; max-width: 700px; margin: 0 auto;">
-                    <form id="contactForm"
-                        style="display: flex; flex-direction: column; gap: 1.5rem; text-align: left;">
-                        <div>
-                            <label
-                                style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 8px; display: block;">Full
-                                Name</label>
-                            <input type="text" id="nameInput" required
-                                style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); font-family: var(--font-body); outline: none;">
-                        </div>
-                        <div>
-                            <label
-                                style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 8px; display: block;">Email
-                                Address</label>
-                            <input type="email" id="emailInput" required
-                                style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); font-family: var(--font-body); outline: none;">
-                        </div>
-                        <div>
-                            <label
-                                style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 8px; display: block;">Project
-                                Details</label>
-                            <textarea rows="4" id="messageInput" required
-                                style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-base); color: var(--text-primary); font-family: var(--font-body); outline: none;"></textarea>
-                        </div>
-                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Submit
-                            Inquiry</button>
-                        <p id="formFeedback"
-                            style="display: none; text-align: center; margin-top: 10px; font-weight: 500; font-family: var(--font-body); color: #25D366;">
-                        </p>
-                    </form>
-                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
-                        <a href="mailto:goldenclicks1557@gmail.com"
-                            style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--accent-dark);">goldenclicks1557@gmail.com</a>
-                        <br>
-                        <a href="tel:+918952861367"
-                            style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--accent-dark); display: inline-block; margin-top: 10px;">+91 89528 61367</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-   <footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div>
-                <a href="#home" class="brand-logo-wrapper route-link" data-route="home"
-                    style="margin-bottom: 1.5rem; filter: none;">
-                    <img src="gc.jpeg" alt="Golden Clicks Logo"
-                        style="height: 50px;">
-                    <div class="brand-text-container">
-                        <span class="brand-main" style="font-size: 1.2rem;">GOLDEN CLICKS</span>
-                    </div>
-                </a>
-                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
-                    Your Growth. Our Strategy. Unlimited Possibilities.<br>We engineer digital empires.
-                </p>
-            </div>
-
-            <div>
-                <h4>Capabilities</h4>
-                <ul class="footer-links">
-                    <li><a href="#services" class="route-link" data-route="services">Web Architecture</a></li>
-                    <li><a href="#services" class="route-link" data-route="services">Cinematic Reels</a></li>
-                    <li><a href="#services" class="route-link" data-route="services">Performance Marketing</a></li>
-                    <li><a href="#services" class="route-link" data-route="services">Search Dominance</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Agency</h4>
-                <ul class="footer-links">
-                    <li><a href="#about" class="route-link" data-route="about">The Vision</a></li>
-                    <li><a href="#portfolio" class="route-link" data-route="portfolio">Masterpieces</a></li>
-                    <li><a href="#pricing" class="route-link" data-route="pricing">Investment</a></li>
-                    <li><a href="#contact" class="route-link" data-route="contact">Connect</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Network</h4>
-                <ul class="footer-links">
-                    <li>
-                        <a href="https://www.instagram.com/" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.2rem; width: 20px; text-align: center;"></i> Instagram
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fa-brands fa-linkedin" style="color: #0077b5; font-size: 1.2rem; width: 20px; text-align: center;"></i> LinkedIn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.youtube.com/" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.2rem; width: 20px; text-align: center;"></i> YouTube
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://wa.me/918952861367" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 1.2rem; width: 20px; text-align: center;"></i> WhatsApp Direct
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div
-            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
-            <span
-                style="color: var(--text-secondary); font-size: 0.85rem; font-family: var(--font-tagline); text-transform: uppercase; letter-spacing: 1px;">Operations:
-                Mon–Sat, 10:00 AM – 7:00 PM</span>
-            <span style="color: var(--text-secondary); font-size: 0.85rem;">&copy; <span id="year"></span> Golden
-                Clicks Agency. All Rights Reserved.</span>
-        </div>
-    </div>
-</footer>
-
-    <a href="https://wa.me/918952861367" target="_blank" class="fab fab-wa" title="Priority Chat"><i
-            class="fa-brands fa-whatsapp"></i></a>
-    <a href="#home" class="fab fab-top route-link" data-route="home" id="backToTop"><i
-            class="fa-solid fa-arrow-up"></i></a>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Loader Fadeout
-            setTimeout(() => {
-                const loader = document.getElementById('loader');
-                loader.style.opacity = '0';
-                setTimeout(() => loader.style.display = 'none', 800);
-            }, 1200);
-
-            // Theme Toggle Logic (Dark/Light Mode)
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = themeToggle.querySelector('i');
-            const currentTheme = localStorage.getItem('theme');
-            
-            if (currentTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            }
-
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                
-                if (document.body.classList.contains('dark-mode')) {
-                    themeIcon.classList.replace('fa-moon', 'fa-sun');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    themeIcon.classList.replace('fa-sun', 'fa-moon');
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-
-            // Header & Scroll Progress Hook
-            const header = document.getElementById('header');
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('nav-links');
-            const backToTop = document.getElementById('backToTop');
-            const scrollProgress = document.getElementById('scroll-progress');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-                if (window.scrollY > 600) backToTop.classList.add('visible'); else backToTop.classList.remove('visible');
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
-                scrollProgress.style.width = progress + '%';
-            });
-
-            // Mobile Menu
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('fa-xmark');
-            });
-            document.querySelectorAll('.nav-item.route-link').forEach(item => {
-                item.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    hamburger.classList.remove('fa-xmark');
-                    hamburger.classList.add('fa-bars');
-                    dmDropdown.classList.remove('open');
-                });
-            });
-
-            // Dropdown Logic
-            const dmDropdown = document.getElementById('dm-dropdown');
-            const dmToggle = document.getElementById('dm-toggle');
-            dmToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                dmDropdown.classList.toggle('open');
-            });
-            document.addEventListener('click', (e) => {
-                if (!dmDropdown.contains(e.target)) dmDropdown.classList.remove('open');
-            });
-
-            // FIX APPLIED: Replaced generic services with your Pricing Plans & background images
-            const pricingPlans = [
-                {
-                    icon: "fa-seedling",
-                    title: "BASIC PLAN",
-                    price: "₹8,999 / Month",
-                    bgImg: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000",
-                    items: [
-                        "12 Social Media Posts", "8 Reels Editing", "Captions & Hashtags", 
-                        "Facebook & Instagram Management", "8 Story Posts", "Basic Graphic Design", 
-                        "Monthly Performance Report", "WhatsApp Support"
-                    ],
-                    notIncluded: ["Meta Ads", "Google Ads", "Video Shoot", "Website"],
-                    footerText: "Perfect for startups and small businesses."
-                },
-                {
-                    icon: "fa-rocket",
-                    title: "GROWTH PLAN",
-                    price: "₹17,999 / Month",
-                    bgImg: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
-                    items: [
-                        "20 Social Media Posts", "16 Reels Editing", "Professional Captions", 
-                        "Facebook & Instagram Management", "20 Story Posts", "Content Calendar", 
-                        "Meta Ads Management", "Monthly Performance Report", 
-                        "Basic Competitor Analysis", "WhatsApp Support"
-                    ],
-                    notIncluded: ["Meta Ad Budget (Client Pays)"],
-                    footerText: "Best for growing brands."
-                },
-                {
-                    icon: "fa-crown",
-                    title: "PREMIUM PLAN",
-                    price: "₹34,999 / Month",
-                    bgImg: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&q=80&w=1000",
-                    items: [
-                        "Daily Social Media Posts", "30 Reels Editing", "Professional Content Strategy", 
-                        "FB, IG & Google Business Profile", "Meta Ads Management", "Google Ads Management", 
-                        "Lead Generation", "Monthly Strategy Meeting", "Full Brand Design", 
-                        "Premium Graphics", "Priority Support"
-                    ],
-                    notIncluded: ["Meta & Google Ad Budgets"],
-                    footerText: "Complete digital growth."
-                },
-                {
-                    icon: "fa-plus-circle",
-                    title: "EXTRA SERVICES",
-                    price: "A La Carte",
-                    bgImg: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000",
-                    items: [
-                        "Logo Design — ₹999", "Visiting Card Design — ₹499", "Poster Design — ₹299", 
-                        "Reel Editing — ₹499 / Reel", "Social Media Post Design — ₹299 / Post", 
-                        "Meta Ads Setup — ₹2,999", "Google Ads Setup — ₹3,999", 
-                        "Basic Website — ₹9,999", "Landing Page — ₹4,999"
-                    ],
-                    notIncluded: [],
-                    footerText: "Add on to any plan or buy standalone."
-                }
-            ];
-
-            function renderServices(containerId, list) {
-                const el = document.getElementById(containerId);
-                if (!el) return;
-                // FIX APPLIED: Injected inline styling for dynamic background images with dark overlays to ensure text is perfectly readable in light and dark mode.
-                el.innerHTML = list.map((s, idx) => `
-                    <div class="glass-card reveal delay-${idx % 4 + 1}" style="background-image: linear-gradient(to bottom, rgba(26, 24, 22, 0.85), rgba(15, 14, 13, 0.95)), url('${s.bgImg}'); background-size: cover; background-position: center;">
-                        <div class="card-inner" style="background: transparent;">
-                            <i class="fa-solid ${s.icon} card-icon" style="color: var(--accent-primary); -webkit-text-fill-color: var(--accent-primary); text-shadow: 0 5px 15px rgba(0,0,0,0.5);"></i>
-                            <h3 class="card-title" style="color: #fff;">${s.title}</h3>
-                            <p style="color: var(--accent-primary); font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; font-family: var(--font-brand);">${s.price}</p>
-                            
-                            <ul class="card-list" style="color: #f0f0f0;">
-                                ${s.items.map(i => `<li style="color: #fff;"><i class="fa-solid fa-check" style="color: var(--accent-primary);"></i> ${i}</li>`).join('')}
-                                ${s.notIncluded.length ? s.notIncluded.map(i => `<li style="color: rgba(255,255,255,0.6);"><i class="fa-solid fa-times" style="color: #ff4c4c;"></i> <i>${i}</i></li>`).join('') : ''}
-                            </ul>
-                            
-                            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                                <p style="font-size: 0.85rem; color: var(--accent-primary); font-style: italic;">${s.footerText}</p>
-                            </div>
-                            <a href="#contact" class="btn btn-primary route-link" data-route="contact" style="margin-top: 1.5rem; width: 100%; padding: 12px 24px; font-size: 0.85rem;">Select Plan</a>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            // Rendering services to both the homepage and pricing sections
-            renderServices('services-container-home', pricingPlans); 
-            renderServices('services-container-pricing', pricingPlans); 
-            
-            // Scroll Reveal Observer
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-            function observeReveals() {
-                document.querySelectorAll('.reveal:not(.active)').forEach(el => revealObserver.observe(el));
-            }
-            observeReveals();
-
-            // Stats Counter Logic
-            const counterObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = +entry.target.getAttribute('data-target');
-                        let count = 0; const speed = target / 50;
-                        const suffix = entry.target.innerHTML.includes('span') ? entry.target.querySelector('span').outerHTML : (target > 90 ? '+' : '');
-                        const updateCount = () => {
-                            count += speed;
-                            if (count < target) {
-                                entry.target.innerHTML = Math.ceil(count) + suffix;
-                                requestAnimationFrame(updateCount);
-                            } else {
-                                entry.target.innerHTML = target + suffix;
-                            }
-                        };
-                        updateCount(); observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            document.querySelectorAll('.counter').forEach(counter => counterObserver.observe(counter));
-
-            // Typing Effect
-            const typedPhrases = [
-                "We engineer immersive digital experiences.",
-                "We scale premium brands through performance.",
-                "We craft cinematic content that dominates.",
-                "Connect • Growth • Succeed Together."
-            ];
-            const typedEl = document.getElementById('typed-text');
-            let phraseIndex = 0, charIndex = 0, deleting = false;
-            function typeLoop() {
-                if (!typedEl) return;
-                const current = typedPhrases[phraseIndex];
-                if (!deleting) {
-                    typedEl.textContent = current.slice(0, charIndex + 1);
-                    charIndex++;
-                    if (charIndex === current.length) { deleting = true; setTimeout(typeLoop, 2500); return; }
-                } else {
-                    typedEl.textContent = current.slice(0, charIndex - 1);
-                    charIndex--;
-                    if (charIndex === 0) { deleting = false; phraseIndex = (phraseIndex + 1) % typedPhrases.length; }
-                }
-                setTimeout(typeLoop, deleting ? 20 : 60);
-            }
-            typeLoop();
-
-            // Set Year
-            document.getElementById('year').innerText = new Date().getFullYear();
-
-            // Premium Particle Canvas
-            const canvas = document.getElementById('particle-canvas');
-            if (canvas) {
-                const ctx = canvas.getContext('2d');
-                let particles = [];
-                function resizeCanvas() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-                function initParticles() {
-                    particles = []; const count = Math.floor((canvas.width * canvas.height) / 18000);
-                    for (let i = 0; i < count; i++) {
-                        const isDark = Math.random() > 0.5;
-                        particles.push({
-                            x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-                            r: Math.random() * 2.5 + 0.5,
-                            vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.2,
-                            color: isDark ? 'rgba(166, 110, 26, 0.4)' : 'rgba(214, 162, 75, 0.3)'
-                        });
-                    }
-                }
-                function animateParticles() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    particles.forEach(p => {
-                        p.x += p.vx; p.y += p.vy;
-                        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-                        ctx.beginPath(); ctx.fillStyle = p.color;
-                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
-                    });
-                    requestAnimationFrame(animateParticles);
-                }
-                resizeCanvas(); initParticles(); animateParticles();
-                window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
-            }
-
-            // SPA Routing Integration
-            const validRoutes = ['home', 'about', 'services', 'portfolio', 'pricing', 'faq', 'contact', 'blog'];
-            function showPage(route) {
-                const target = validRoutes.includes(route) ? route : 'home';
-                document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-page'));
-                const el = document.getElementById('page-' + target);
-                if (el) el.classList.add('active-page');
-
-                document.querySelectorAll('.route-link').forEach(link => {
-                    link.classList.toggle('active', link.dataset.route === target);
-                });
-                window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
-                observeReveals();
-            }
-            function routeFromHash() {
-                const hash = window.location.hash.replace('#', '') || 'home';
-                if (validRoutes.includes(hash)) showPage(hash);
-            }
-            window.addEventListener('hashchange', routeFromHash);
-            routeFromHash();
-
-            // Form Submit Functionality - Opens Mail Client
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    
-                    const name = document.getElementById('nameInput').value;
-                    const email = document.getElementById('emailInput').value;
-                    const msg = document.getElementById('messageInput').value;
-                    
-                    const btn = document.getElementById('submitBtn');
-                    const feedback = document.getElementById('formFeedback');
-
-                    // Loading State
-                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Redirecting...';
-                    btn.disabled = true;
-
-                    setTimeout(() => {
-                        // Open the user's default email client
-                        window.location.href = `mailto:goldenclicks1557@gmail.com?subject=New Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0A%0AMessage:%0A${encodeURIComponent(msg)}`;
-                        
-                        // Reset Form
-                        contactForm.reset();
-                        btn.innerHTML = 'Submit Inquiry';
-                        btn.disabled = false;
-                        
-                        feedback.innerText = "Opening your email app...";
-                        feedback.style.display = "block";
-                        
-                        setTimeout(() => { feedback.style.display = "none"; }, 5000);
-                    }, 800);
-                });
-            }
-        });
-    </script>
-</body>
->>>>>>> 34c2dc09a611b5c7b0ac33a2d3b08ed9794e8b89
 </html>
